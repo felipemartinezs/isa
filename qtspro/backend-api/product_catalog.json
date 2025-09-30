@@ -1,0 +1,446 @@
+{
+    "100088040": {
+        "description": "WIRE 12/2C STR PLENUM 1000'",
+        "part_number": "AL-1202C-2-2N-01"
+    },
+    "100088192": {
+        "description": "UNISTRUT BRACE KIT-7 FOOT-WHITE",
+        "part_number": "CS-7"
+    },
+    "100524726": {
+        "description": "RJ45 MODULAR PLUG PKG 25",
+        "part_number": "W-109687"
+    },
+    "100541765": {
+        "description": "WIRE CAT 5E WHITE 350 MHZ LSZH 1000 FT",
+        "part_number": "71B48WT35Z"
+    },
+    "100587323": {
+        "description": "CABLE CAT 5E JUMPER 3FT YELLOW",
+        "part_number": "1054303YW"
+    },
+    "100587924": {
+        "description": "SUPPORT PLATE FLEXIDOME DROP CEILING",
+        "part_number": "MNT-ICP-FDC"
+    },
+    "100592052": {
+        "description": "WIRE CAT5 RJ45 PATCH 10\u2019 24/4PR YEL BOOT",
+        "part_number": "71054410YW"
+    },
+    "100595572": {
+        "description": "MOUNT-PVM POLE-10-21 FOOT",
+        "part_number": "CM-XL-21-W"
+    },
+    "100597171": {
+        "description": "MONITOR-24IN- 24VDC",
+        "part_number": "GVM24-0-3001-B"
+    },
+    "100633270": {
+        "description": "UNIVERSAL WALL MOUNT ARM",
+        "part_number": "NDA-U-WMT"
+    },
+    "100643640": {
+        "description": "CAMERA/FA54 KIT FOR MONITORS",
+        "part_number": "MCLA-BAXFA54"
+    },
+    "100643720": {
+        "description": "REPLACEMENT CAMERA FOR BNB-SCA-1KIT",
+        "part_number": "CIP-AX4115"
+    },
+    "100645451": {
+        "description": "WALL MOUNT PLATE FOR NDA-U-WMT",
+        "part_number": "NDA-U-WMP"
+    },
+    "100646639": {
+        "description": "CABLE EXTENSION-15M-AXIS F7315",
+        "part_number": "RCBL-AX7315-15M"
+    },
+    "100646744": {
+        "description": "POWER SUPPLY KIT-PVM-RACK MOUNT",
+        "part_number": "RKIT-LVDPS24-2"
+    },
+    "100649982": {
+        "description": "POWER DISTRIBUTION KIT-24VDC-12VDC",
+        "part_number": "PDISTKIT-2412"
+    },
+    "100652099": {
+        "description": "Hardware KIT-24in Monitors (Wall Mount)",
+        "part_number": "HW-AVM24WMK1"
+    },
+    "100652127": {
+        "description": "Hardware KIT-43in Double PVM (Ceiling)",
+        "part_number": "HW-GVM43CM2SCLV"
+    },
+    "100652173": {
+        "description": "MOUNT-EPVM POLE FOR CM-BB10-2-17-W",
+        "part_number": "PL-CMBB10217"
+    },
+    "100652174": {
+        "description": "HARDWARE KIT FOR CM-BB10-2-17-W",
+        "part_number": "HW-CMBB10217"
+    },
+    "100652489": {
+        "description": "HARDWARE KIT-43IN SINGLE PVM (CEILING)",
+        "part_number": "HW-GVM43CM1SCLV"
+    },
+    "100652527": {
+        "description": "HARDWARE KIT-32IN PVM(WALL MOUNT)",
+        "part_number": "HW-GVM32WMK1LV"
+    },
+    "100652564": {
+        "description": "MONITOR-32IN-24VDC",
+        "part_number": "GVM32-0-3011-B"
+    },
+    "100658054": {
+        "description": "MODULAR 2-PORT BISCUIT-JACK-EMPTY",
+        "part_number": "NK2BXWH-A"
+    },
+    "100658062": {
+        "description": "MODULAR-JACK-CAT5-ORANGE",
+        "part_number": "NKP5E88MOR"
+    },
+    "100666670": {
+        "description": "MONITOR-43IN-24VDC",
+        "part_number": "GVM43-0-3017-B"
+    },
+    "100673874": {
+        "description": "SCO CAM ARM ASSY WITH FA51/1105",
+        "part_number": "BNB-SCB-1KIT"
+    },
+    "100673875": {
+        "description": "CAMERA/FA51 KIT FOR MONITORS",
+        "part_number": "MCLB-BAXFA51"
+    },
+    "100673876": {
+        "description": "STAFF LANE ARM W AXIS FA51/1105",
+        "part_number": "PSA-W4-BAXFA51"
+    },
+    "100674059": {
+        "description": "CAMERA-PANO-12MP-INDOOR",
+        "part_number": "NDS-5704-F360-W"
+    },
+    "100674060": {
+        "description": "CAMERA-PANO-12MP-OUTDOOR",
+        "part_number": "NDS-5704-F360LE-W"
+    },
+    "100677925": {
+        "description": "PTZ-DROP TILE DOME-2MP",
+        "part_number": "CIP-QNP6250"
+    },
+    "100677928": {
+        "description": "PTZ-PENDANT DOME-2MP",
+        "part_number": "CIP-QNP6250H"
+    },
+    "100677931": {
+        "description": "CAMERA-MICRO-5MP-2.5MM-INDOOR",
+        "part_number": "CIP-QND8011"
+    },
+    "100682637": {
+        "description": "MONITOR-EPVM-10 INCH-POE-BLACK",
+        "part_number": "PVM10-B-2086-WMT"
+    },
+    "100685551": {
+        "description": "MOUNT-PENDANT POLE FOR QNP-6250H",
+        "part_number": "CM-HWSBP-156C"
+    },
+    "100685552": {
+        "description": "MOUNT-WALL ARM FOR QNP-6250H",
+        "part_number": "CM-HWSBP-156WMW"
+    },
+    "100685553": {
+        "description": "MOUNT-CORNER ADAPTER FOR QNP-6250H",
+        "part_number": "CM-HWSBP-156KMW"
+    },
+    "100685763": {
+        "description": "MOUNT-CONDUIT BOX FOR NDS-5704-F360LE",
+        "part_number": "NDA-U-CBB"
+    },
+    "100686088": {
+        "description": "MOUNT-RECESSED ADAPTOR-HANWAH PTZ",
+        "part_number": "CM-HSHP3701F"
+    },
+    "100686469": {
+        "description": "DECODER, 64 CH, HANWHA SPD-152",
+        "part_number": "DE-HASPD-151"
+    },
+    "100692829": {
+        "description": "CAMERA-DOME-5MP-3-10MM-OUTDOOR",
+        "part_number": "NDE-5703-A-W"
+    },
+    "100696018": {
+        "description": "MOUNT- PVC-CAMERA PENDANT-4\u2019 X3 SECTIONS",
+        "part_number": "POLE1275"
+    },
+    "100696946": {
+        "description": "MOUNT-UNIVERSAL CAMERA SHROUD-GEN2",
+        "part_number": "PNDT2-UC-D"
+    },
+    "100696947": {
+        "description": "SUPPORT PLATE-CEILING TILE-FORSHP-1520FW",
+        "part_number": "CSP-HASHP-1520FW"
+    },
+    "100701333": {
+        "description": "MOUNTING HOOD-FOR NDE-5703",
+        "part_number": "NDA-5070-PIP"
+    },
+    "100702031": {
+        "description": "DECODER-VJD-7523-SUPPORTS 2 MONITORS",
+        "part_number": "VJD-7523-W"
+    },
+    "100708418": {
+        "description": "VMS CONTROL BOARD, AXIS TU9001",
+        "part_number": "CB-AXTU9001"
+    },
+    "100715169": {
+        "description": "FIXED DOME 8MP HDR 3.2-10.5MM IP66 IR WM",
+        "part_number": "NDE-5704-AL-W"
+    },
+    "100646030": {
+        "description": "DVR WIN10 Image (For Store)",
+        "part_number": "Software Image"
+    },
+    "100715055": {
+        "description": "Precision 3680 CTO Base with SSD Drive",
+        "part_number": "3680 TOWER"
+    },
+    "100666953": {
+        "description": "AMPLIFIER 8 CHANNEL 600 WATT",
+        "part_number": "PRA-AD608"
+    },
+    "100666807": {
+        "description": "EOL CARD FOR USA (8 per Amplifier)",
+        "part_number": "PRA-EOL-US"
+    },
+    "100666939": {
+        "description": "MULTIFUNCTION POWER SUPPLY",
+        "part_number": "PRA-MPS3"
+    },
+    "100666844": {
+        "description": "SYSTEM CONTROLLER LARGE",
+        "part_number": "PRA-SCL"
+    },
+    "100660003": {
+        "description": "SPEAKER 5 INCH CABINET WEATHERPROOF WHITE (2-PACK)",
+        "part_number": "LB20-PC60EW-5L"
+    },
+    "100666967": {
+        "description": "PENDANT SPEAKER 6.5 INCH WHT UL CX ONLY",
+        "part_number": "EVID-P6.2UW"
+    },
+    "100667272": {
+        "description": "IOT Gateway (G-Series to PA)",
+        "part_number": "PXI-CORE"
+    },
+    "100663267": {
+        "description": "WIRE 14/2C STR (41/30) OFC HI-FLEX WHITE CL3/FPL 1000 FT",
+        "part_number": "1U1402H2B1"
+    },
+    "100559508": {
+        "description": "B SERIES MODULE 8 OUTPUT RELAY FOR SDI2",
+        "part_number": "B308"
+    },
+    "100568058": {
+        "description": "B SERIES MODULE 8 INPUT FOR SDI2 BUS",
+        "part_number": "B208"
+    },
+    "100666941": {
+        "description": "CEILING SPEAKER ROUND 6 INCH 12W METAL",
+        "part_number": "LC1-UM12E8"
+    },
+    "100666942": {
+        "description": "METAL FIRE DOME FOR LC1 SERIES SPEAKERS",
+        "part_number": "LC1-MFD"
+    },
+    "100663380": {
+        "description": "TILE BRIDGE ACCY FOR LC1 SPKRS (2-PACK)",
+        "part_number": "LM1-TB"
+    },
+    "100567650": {
+        "description": "WIRE 18/3 PR STR CM/FPL LSZH WHT 1000 FT",
+        "part_number": "74183PRWZ"
+    },
+    "100711210": {
+        "description": "PRAESENSA KIT (does not include MQTT)",
+        "part_number": "PSP-D00096-2"
+    },
+    "100685204": {
+        "description": "14/2C STRANDED SHIELDED WATERBLOCKED 500 ft ",
+        "part_number": "451402SDBL"
+    },
+    "100709034": {
+        "description": "PRAESENSA Volume Wall Control Panel - IP",
+        "part_number": "F.01U.394.536"
+    },
+    "100548049": {
+        "description": "BATTERY 12 V 18AH WITH NUT/BOLT TERMINAL",
+        "part_number": "POW-PS12180NB"
+    },
+    "100088474": {
+        "description": "BATTERY 12 VOLT 7 AH",
+        "part_number": "BWG-1270"
+    },
+    "100088089": {
+        "description": "BATTERY BOX W/OSHELF",
+        "part_number": "BATB-40"
+    },
+    "100088672": {
+        "description": "CEILING STROBES STD",
+        "part_number": "BK-SCRLED"
+    },
+    "100663940": {
+        "description": "CELLULAR KIT WITH B444 AND B450",
+        "part_number": "B450-V"
+    },
+    "100566078": {
+        "description": "CONTACT 3/4 RECESSED W/MAGNET 3'LD 1/PKG",
+        "part_number": "N1178CGSHK/ST036W1"
+    },
+    "100697595": {
+        "description": "Detector base, 6\", 4-wire, 12V",
+        "part_number": "FCA-350-B6R12"
+    },
+    "100639224": {
+        "description": "DUCT DETECTOR POWER SUPERVISION MODULE",
+        "part_number": "06-PAM-4"
+    },
+    "100601900": {
+        "description": "ENCLOSURE FIRE ALARM DOCUM",
+        "part_number": "O6-SSU00685"
+    },
+    "100088265": {
+        "description": "ENCLOSURE RED FIRE UL WITH LOCK/KEY",
+        "part_number": "D8109-1358"
+    },
+    "100088577": {
+        "description": "H/S STD RD OTDR WALL",
+        "part_number": "BK-P2RKLED"
+    },
+    "100088581": {
+        "description": "HORN/STROBE CEILING MOUNT 2-WIRE STD",
+        "part_number": "BK-PC2RLED"
+    },
+    "100588150": {
+        "description": "KEYPAD 2 LINE ALPHA NUMERIC (SD12)",
+        "part_number": "B920"
+    },
+    "100596874": {
+        "description": "KEYPAD 2-LINE ALPHA FIRE",
+        "part_number": "B926F"
+    },
+    "100602755": {
+        "description": "KEYPAD BOX SURFACE MOUNT",
+        "part_number": "B56"
+    },
+    "100596876": {
+        "description": "KEYPAD TOUCH-SCREEN WHITE",
+        "part_number": "B942W"
+    },
+    "100588164": {
+        "description": "MODULE POPEX FOR B9512G AND B8512G",
+        "part_number": "B299"
+    },
+    "100523884": {
+        "description": "Motion Detector 40X40 Tri Tech Blue Line",
+        "part_number": "ISC-BDL2-WP12G"
+    },
+    "100088305": {
+        "description": "MOTION DETECTOR 70 FT CEILING DUAL",
+        "part_number": "DS9370"
+    },
+    "100503017": {
+        "description": "CONTACT, SMALL OH DOOR CONTACT",
+        "part_number": "N200AU/ST036"
+    },
+    "100588165": {
+        "description": "PANEL AL CONTROL 599 PTS INT-FIRE-ACCESS",
+        "part_number": "B9512G"
+    },
+    "100088273": {
+        "description": "POPIT",
+        "part_number": "D9127U"
+    },
+    "100088043": {
+        "description": "POWER SUPPLY 10 AMP 4 NAC CIRCUITS",
+        "part_number": "ALT-AL1002ULADA"
+    },
+    "100578886": {
+        "description": "POWER SUPPLY AL400 ENC PD4UL ASSEMBLED",
+        "part_number": "IPP-AL400-ULKT3"
+    },
+    "100088212": {
+        "description": "RELAY MODULE 5 AMP",
+        "part_number": "D130"
+    },
+    "100088270": {
+        "description": "RELEASE MODULE",
+        "part_number": "D8130"
+    },
+    "100088380": {
+        "description": "SINGLE ACTION PULL STATION",
+        "part_number": "FMM-100SATK"
+    },
+    "100088055": {
+        "description": "SIREN DRIVER ALTRONICS",
+        "part_number": "ALSD1"
+    },
+    "100697596": {
+        "description": "Smoke detector head, photo/heat",
+        "part_number": "FCP-350-PTH"
+    },
+    "100088224": {
+        "description": "SUPERVISION MODULE",
+        "part_number": "D192G"
+    },
+    "100523350": {
+        "description": "SURGE PROTECTOR  12 VOLT 2 PR MOD W/BASE",
+        "part_number": "DK-2MHLP12BW"
+    },
+    "100509009": {
+        "description": "SYNC MODULE RED",
+        "part_number": "BK-MDL3R"
+    },
+    "100088118": {
+        "description": "TEST/RESET SWT WKEY",
+        "part_number": "BKRTS151KEY"
+    },
+    "100088220": {
+        "description": "TRANSFORMER 16VAC 40VA",
+        "part_number": "D1640"
+    },
+    "100088263": {
+        "description": "TRANSFORMER KIT UL",
+        "part_number": "D8004"
+    },
+    "100567646": {
+        "description": "WIRE 12/2 STR CL3/FPL LSZH WHT 1000 FT",
+        "part_number": "74122ZWHZ"
+    },
+    "100547890": {
+        "description": "WIREWAY B-LINE NEMA1 SCR CVR 4\"X4\"X48\"",
+        "part_number": "4448G"
+    },
+    "100547941": {
+        "description": "WIREWAY END CAP 2.5\"X2.5\"",
+        "part_number": "22E"
+    },
+    "100547879": {
+        "description": "WIREWAY ENDCAP B-LINE NEMA1 SC 4\"X4\"",
+        "part_number": "44E"
+    },
+    "100547931": {
+        "description": "WIREWAY STRAIGHT SECTION W/KO 2.5X2.5X48",
+        "part_number": "2248G"
+    },
+    "100705966": {
+        "description": "Speaker; 30w Horn",
+        "part_number": "ELKSP30"
+    },
+    "100503009": {
+        "description": "MOTION DETECTOR, PIR/MICROWAVE ",
+        "part_number": "ISC-PDL1-W18G"
+    },
+    "100579075": {
+        "description": "MOTION DETECTOR, PIR/MICROWAVE CURTAIN LENS PRO SERIES",
+        "part_number": "ISC-PDL1-WC30G"
+    }
+}

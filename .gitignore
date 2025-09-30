@@ -1,0 +1,16 @@
+# Environments
+.venv/
+
+# Dependencies
+node_modules/
+
+# IDE / OS files
+.DS_Store
+.vscode/
+
+# Backup Folders
+IsaApp-Backend 9-13-25/
+IsaApp-Backend 9-5-25/
+
+# Embedded Repositories
+IsaApp/

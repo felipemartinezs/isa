@@ -1,0 +1,172 @@
+{
+    "null": {
+        "bom": {
+            "bom": {},
+            "inventory": {}
+        },
+        "inventory": {
+            "bom": {},
+            "inventory": {}
+        }
+    },
+    "Inventory": {
+        "bom": {
+            "bom": {},
+            "inventory": {}
+        },
+        "inventory": {
+            "bom": {},
+            "inventory": {}
+        },
+        "CX": {
+            "bom": {},
+            "inventory": {
+                "100088672": {
+                    "expected": 0,
+                    "scanned": 0,
+                    "description": "CEILING STROBES STD",
+                    "status": "IDENTIFIED",
+                    "part_number": "BK-SCRLED"
+                }
+            }
+        },
+        "FIRE & BURG ALARM": {
+            "bom": {},
+            "inventory": {
+                "100548049": {
+                    "expected": 0,
+                    "scanned": 3,
+                    "description": "BATTERY 12 V 18AH WITH NUT/BOLT TERMINAL",
+                    "status": "IDENTIFIED",
+                    "part_number": "POW-PS12180NB"
+                },
+                "100088474": {
+                    "expected": 0,
+                    "scanned": 8,
+                    "description": "BATTERY 12 VOLT 7 AH",
+                    "status": "IDENTIFIED",
+                    "part_number": "BWG-1270"
+                }
+            }
+        },
+        "CCTV": {
+            "bom": {},
+            "inventory": {}
+        }
+    },
+    "PO-DEMO": {
+        "bom": {
+            "bom": {},
+            "inventory": {}
+        },
+        "inventory": {
+            "bom": {},
+            "inventory": {}
+        }
+    },
+    "Inventory ": {
+        "bom": {
+            "bom": {},
+            "inventory": {}
+        },
+        "inventory": {
+            "bom": {},
+            "inventory": {}
+        }
+    },
+    "inventory": {
+        "CCTV": {
+            "bom": {},
+            "inventory": {}
+        }
+    },
+    "PROJ-DEMO": {
+        "CCTV": {
+            "bom": {},
+            "inventory": {
+                "100674059": {
+                    "expected": 0,
+                    "scanned": 3,
+                    "description": "CAMERA-PANO-12MP-INDOOR",
+                    "part_number": "NDS-5704-F360-W",
+                    "status": "IDENTIFIED"
+                },
+                "12345678": {
+                    "expected": 0,
+                    "scanned": 1,
+                    "description": "Unidentified Item",
+                    "status": "UNIDENTIFIED",
+                    "scanned_part_number": "12345678"
+                },
+                "100548049": {
+                    "expected": 0,
+                    "scanned": 2,
+                    "description": "BATTERY 12 V 18AH WITH NUT/BOLT TERMINAL",
+                    "status": "IDENTIFIED",
+                    "part_number": "POW-PS12180NB"
+                },
+                "B8-A4-4F-CA-74-DD": {
+                    "expected": 0,
+                    "scanned": 1,
+                    "description": "Unidentified Item",
+                    "status": "UNIDENTIFIED",
+                    "scanned_part_number": "B8-A4-4F-CA-74-DD"
+                },
+                "00-07-5F-F3-D0-47": {
+                    "expected": 0,
+                    "scanned": 1,
+                    "description": "Unidentified Item",
+                    "status": "UNIDENTIFIED",
+                    "scanned_part_number": "00-07-5F-F3-D0-47"
+                },
+                "100088040": {
+                    "expected": 0,
+                    "scanned": 5,
+                    "description": "WIRE 12/2C STR PLENUM 1000'",
+                    "status": "IDENTIFIED",
+                    "part_number": "AL-1202C-2-2N-01"
+                }
+            }
+        },
+        "CX": {
+            "bom": {},
+            "inventory": {}
+        },
+        "FIRE & BURG ALARM": {
+            "bom": {},
+            "inventory": {}
+        }
+    },
+    "MAC_REGISTRY": {
+        "SCANNED_MACS": {
+            "bom": {},
+            "inventory": {
+                "A4-18-94-02-1C-14": {
+                    "expected": 0,
+                    "scanned": 1,
+                    "description": "Unidentified Item",
+                    "status": "UNIDENTIFIED",
+                    "scanned_part_number": "A4-18-94-02-1C-14"
+                }
+            }
+        },
+        "CCTV": {
+            "bom": {},
+            "inventory": {}
+        },
+        "CX": {
+            "bom": {},
+            "inventory": {}
+        },
+        "FIRE & BURG ALARM": {
+            "bom": {},
+            "inventory": {}
+        }
+    },
+    "BOM": {
+        "FIRE & BURG ALARM": {
+            "bom": {},
+            "inventory": {}
+        }
+    }
+}

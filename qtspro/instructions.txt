@@ -1,0 +1,41 @@
+### Instrucciones para Iniciar el Sistema QTS Pro
+
+Necesitarás dos ventanas de terminal para los servidores y Xcode para la aplicación móvil.
+
+---
+
+#### Paso 1: Iniciar el Backend (API)
+
+En tu primera ventana de terminal, ejecuta estos comandos:
+
+1. Navega al directorio del backend:
+   cd /Users/felipemartinez/Desktop/isa/qtspro/backend-api
+
+2. Activa el entorno virtual y arranca el servidor:
+   source .venv/bin/activate && uvicorn app.main:app --reload --port 8000
+
+(Deja esta terminal abierta. Verás los logs de la API aquí.)
+
+---
+
+#### Paso 2: Iniciar el Frontend (Panel)
+
+En tu segunda ventana de terminal, ejecuta estos comandos:
+
+1. Navega al directorio del frontend:
+   cd /Users/felipemartinez/Desktop/isa/qtspro/frontend
+
+2. Arranca el servidor de desarrollo:
+   npm run dev
+
+(Deja esta terminal abierta. El panel estará disponible en http://localhost:3000/app.)
+
+---
+
+#### Paso 3: Iniciar la App Móvil (IsaApp)
+
+1. Abre el proyecto de IsaApp en Xcode con este comando en una terminal:
+   open /Users/felipemartinez/Desktop/isa/IsaApp/ios/IsaApp.xcworkspace
+
+2. Dentro de Xcode, asegúrate de que tu iPhone esté seleccionado como dispositivo de destino.
+3. Presiona el botón de Play (▶) para compilar y ejecutar la aplicación en tu teléfono.
