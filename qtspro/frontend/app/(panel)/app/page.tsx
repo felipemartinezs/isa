@@ -39,7 +39,7 @@ const EditableQuantityCell = ({
     };
 
     try {
-      const response = await fetch('http://localhost:8000/api/inventory/update_quantity', {
+      const response = await fetch('https://isa-nged.onrender.com/api/inventory/update_quantity', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload),
@@ -112,7 +112,7 @@ const BomUploader = ({ projectId, category }: { projectId: string; category: str
     formData.append('file', file);
 
     try {
-      const response = await fetch(`http://localhost:8000/api/bom/upload/${projectId}/${category}`, {
+      const response = await fetch(`https://isa-nged.onrender.com/api/bom/upload/${projectId}/${category}`, {
         method: 'POST',
         body: formData,
       });
@@ -272,7 +272,7 @@ const ProjectManager = ({
         <button onClick={onResetClick} style={styles.buttonDanger}>Reset Current</button>
         <button onClick={() => {
           if (projectId && category) {
-            window.open(`http://localhost:8000/api/export/${projectId}/${category}`, '_blank');
+            window.open(`https://isa-nged.onrender.com/api/export/${projectId}/${category}`, '_blank');
           }
         }} style={styles.buttonSecondary}>Export to Excel</button>
         {feedbackMessage && <span style={{ marginLeft: 'auto', fontStyle: 'italic', color: '#5cb85c' }}>{feedbackMessage}</span>}
@@ -302,7 +302,7 @@ export default function PanelPage() {
       };
 
       try {
-        const response = await fetch('http://localhost:8000/api/inventory/delete_item', {
+        const response = await fetch('https://isa-nged.onrender.com/api/inventory/delete_item', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(payload),
@@ -335,7 +335,7 @@ export default function PanelPage() {
     };
 
     try {
-      const response = await fetch('http://localhost:8000/api/classify', {
+      const response = await fetch('https://isa-nged.onrender.com/api/classify', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload),
@@ -360,7 +360,7 @@ export default function PanelPage() {
 
     setIsResetModalOpen(false);
     try {
-      const response = await fetch(`http://localhost:8000/api/reset/${projectId}/${category}`, {
+      const response = await fetch(`https://isa-nged.onrender.com/api/reset/${projectId}/${category}`, {
         method: 'POST',
       });
 
@@ -395,7 +395,7 @@ export default function PanelPage() {
         sap_article: item.sapArticle,
       };
       try {
-        await fetch('http://localhost:8000/api/inventory/delete_item', {
+        await fetch('https://isa-nged.onrender.com/api/inventory/delete_item', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(payload),
@@ -573,7 +573,7 @@ const CatalogUploader = () => {
 
   const fetchCatalogStatus = async () => {
     try {
-      const response = await fetch('http://localhost:8000/api/catalog/status');
+      const response = await fetch('https://isa-nged.onrender.com/api/catalog/status');
       if (response.ok) {
         const status = await response.json();
         setCatalogStatus(status);
@@ -597,7 +597,7 @@ const CatalogUploader = () => {
     formData.append('file', file);
 
     try {
-      const response = await fetch(`http://localhost:8000/api/catalog/${endpoint}`, {
+      const response = await fetch(`https://isa-nged.onrender.com/api/catalog/${endpoint}`, {
         method: 'POST',
         body: formData,
       });
@@ -632,7 +632,7 @@ const CatalogUploader = () => {
     setMessage('Clearing catalog...');
 
     try {
-      const response = await fetch('http://localhost:8000/api/catalog/clear', {
+      const response = await fetch('https://isa-nged.onrender.com/api/catalog/clear', {
         method: 'DELETE',
       });
 

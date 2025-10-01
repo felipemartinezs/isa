@@ -18,7 +18,7 @@ export function useInventoryStream(projectId: string, category: string) {
   useEffect(() => {
     if (!projectId || !category) return;
 
-    const es = new EventSource(`http://localhost:8000/api/sse/${encodeURIComponent(projectId)}/${encodeURIComponent(category)}`);
+    const es = new EventSource(`https://isa-nged.onrender.com/api/sse/${encodeURIComponent(projectId)}/${encodeURIComponent(category)}`);
 
     es.onmessage = (ev) => {
       try {
