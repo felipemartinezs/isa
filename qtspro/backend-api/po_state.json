@@ -164,9 +164,387 @@
         }
     },
     "BOM": {
-        "FIRE & BURG ALARM": {
+        "CCTV": {
             "bom": {},
             "inventory": {}
+        },
+        "FIRE & BURG ALARM": {
+            "bom": {
+                "100548049": {
+                    "description": "BATTERY 12 V 18AH WITH NUT/BOLT TERMINAL",
+                    "expected": 2,
+                    "scanned": 0,
+                    "part_number": "POW-PS12180NB"
+                },
+                "100088089": {
+                    "description": "BATTERY BOX W/OSHELF",
+                    "expected": 2,
+                    "scanned": 0,
+                    "part_number": "BATB-40"
+                },
+                "100088672": {
+                    "description": "CEILING STROBES STD",
+                    "expected": 4,
+                    "scanned": 0,
+                    "part_number": "BK-SCRLED"
+                },
+                "100663940": {
+                    "description": "CELLULAR KIT WITH B444 AND B450",
+                    "expected": 2,
+                    "scanned": 0,
+                    "part_number": "B450-V"
+                },
+                "100566078": {
+                    "description": "CONTACT 3/4 RECESSED W/MAGNET 3'LD 1/PKG",
+                    "expected": 3,
+                    "scanned": 0,
+                    "part_number": "N1178CGSHK/ST036W1"
+                },
+                "100601900": {
+                    "description": "ENCLOSURE FIRE ALARM DOCUM",
+                    "expected": 1,
+                    "scanned": 0,
+                    "part_number": "O6-SSU00685"
+                },
+                "100088581": {
+                    "description": "HORN/STROBE CEILING MOUNT 2-WIRE STD",
+                    "expected": 4,
+                    "scanned": 0,
+                    "part_number": "BK-PC2RLED"
+                },
+                "100588150": {
+                    "description": "KEYPAD 2 LINE ALPHA NUMERIC (SD12)",
+                    "expected": 2,
+                    "scanned": 0,
+                    "part_number": "B920"
+                },
+                "100596874": {
+                    "description": "KEYPAD 2-LINE ALPHA FIRE",
+                    "expected": 3,
+                    "scanned": 0,
+                    "part_number": "B926F"
+                },
+                "100602755": {
+                    "description": "KEYPAD BOX SURFACE MOUNT",
+                    "expected": 1,
+                    "scanned": 0,
+                    "part_number": "B56"
+                },
+                "100596876": {
+                    "description": "KEYPAD TOUCH-SCREEN WHITE",
+                    "expected": 1,
+                    "scanned": 0,
+                    "part_number": "B942W"
+                },
+                "100639348": {
+                    "description": "KEYPAD TRIM PLATE FOR B SERIES KEYPADS",
+                    "expected": 6,
+                    "scanned": 0,
+                    "part_number": "B96"
+                },
+                "100588164": {
+                    "description": "MODULE POPEX FOR B9512G AND B8512G",
+                    "expected": 2,
+                    "scanned": 0,
+                    "part_number": "B299"
+                },
+                "100523884": {
+                    "description": "Motion Detector 40X40 Tri Tech Blue Line",
+                    "expected": 3,
+                    "scanned": 0,
+                    "part_number": "ISC-BDL2-WP12G"
+                },
+                "100088305": {
+                    "description": "MOTION DETECTOR 70 FT CEILING DUAL",
+                    "expected": 1,
+                    "scanned": 0,
+                    "part_number": "DS9370"
+                },
+                "100503017": {
+                    "description": "CONTACT, SMALL OH DOOR CONTACT",
+                    "expected": 1,
+                    "scanned": 0,
+                    "part_number": "N200AU/ST036"
+                },
+                "100588165": {
+                    "description": "PANEL AL CONTROL 599 PTS INT-FIRE-ACCESS",
+                    "expected": 2,
+                    "scanned": 0,
+                    "part_number": "B9512G"
+                },
+                "100088273": {
+                    "description": "POPIT",
+                    "expected": 12,
+                    "scanned": 0,
+                    "part_number": "D9127U"
+                },
+                "100088212": {
+                    "description": "RELAY MODULE 5 AMP",
+                    "expected": 1,
+                    "scanned": 0,
+                    "part_number": "D130"
+                },
+                "100088224": {
+                    "description": "SUPERVISION MODULE",
+                    "expected": 1,
+                    "scanned": 0,
+                    "part_number": "D192G"
+                },
+                "100509009": {
+                    "description": "SYNC MODULE RED",
+                    "expected": 1,
+                    "scanned": 0,
+                    "part_number": "BK-MDL3R"
+                },
+                "100088220": {
+                    "description": "TRANSFORMER 16VAC 40VA",
+                    "expected": 2,
+                    "scanned": 0,
+                    "part_number": "D1640"
+                },
+                "100088263": {
+                    "description": "TRANSFORMER KIT UL",
+                    "expected": 2,
+                    "scanned": 0,
+                    "part_number": "D8004"
+                },
+                "100567646": {
+                    "description": "WIRE 12/2 STR CL3/FPL LSZH WHT 1000 FT",
+                    "expected": 2,
+                    "scanned": 0,
+                    "part_number": "74122ZWHZ"
+                },
+                "100567650": {
+                    "description": "WIRE 18/3 PR STR CM/FPL LSZH WHT 1000 FT",
+                    "expected": 6,
+                    "scanned": 0,
+                    "part_number": "74183PRWZ"
+                },
+                "100547890": {
+                    "description": "WIREWAY B-LINE NEMA1 SCR CVR 4\"X4\"X48\"",
+                    "expected": 2,
+                    "scanned": 0,
+                    "part_number": "4448G"
+                },
+                "100547941": {
+                    "description": "WIREWAY END CAP 2.5\"X2.5\"",
+                    "expected": 1,
+                    "scanned": 0,
+                    "part_number": "22E"
+                },
+                "100547879": {
+                    "description": "WIREWAY ENDCAP B-LINE NEMA1 SC 4\"X4\"",
+                    "expected": 2,
+                    "scanned": 0,
+                    "part_number": "44E"
+                },
+                "100547931": {
+                    "description": "WIREWAY STRAIGHT SECTION W/KO 2.5X2.5X48",
+                    "expected": 2,
+                    "scanned": 0,
+                    "part_number": "2248G"
+                },
+                "100503009": {
+                    "description": "MOTION DETECTOR, PIR/MICROWAVE ",
+                    "expected": 2,
+                    "scanned": 0,
+                    "part_number": "ISC-PDL1-W18G"
+                },
+                "100579075": {
+                    "description": "MOTION DETECTOR, PIR/MICROWAVE CURTAIN LENS PRO SERIES",
+                    "expected": 1,
+                    "scanned": 0,
+                    "part_number": "ISC-PDL1-WC30G"
+                }
+            },
+            "inventory": {
+                "100548049": {
+                    "expected": 2,
+                    "scanned": 0,
+                    "description": "BATTERY 12 V 18AH WITH NUT/BOLT TERMINAL",
+                    "part_number": "POW-PS12180NB"
+                },
+                "100088089": {
+                    "expected": 2,
+                    "scanned": 0,
+                    "description": "BATTERY BOX W/OSHELF",
+                    "part_number": "BATB-40"
+                },
+                "100088672": {
+                    "expected": 4,
+                    "scanned": 0,
+                    "description": "CEILING STROBES STD",
+                    "part_number": "BK-SCRLED"
+                },
+                "100663940": {
+                    "expected": 2,
+                    "scanned": 0,
+                    "description": "CELLULAR KIT WITH B444 AND B450",
+                    "part_number": "B450-V"
+                },
+                "100566078": {
+                    "expected": 3,
+                    "scanned": 0,
+                    "description": "CONTACT 3/4 RECESSED W/MAGNET 3'LD 1/PKG",
+                    "part_number": "N1178CGSHK/ST036W1"
+                },
+                "100601900": {
+                    "expected": 1,
+                    "scanned": 0,
+                    "description": "ENCLOSURE FIRE ALARM DOCUM",
+                    "part_number": "O6-SSU00685"
+                },
+                "100088581": {
+                    "expected": 4,
+                    "scanned": 0,
+                    "description": "HORN/STROBE CEILING MOUNT 2-WIRE STD",
+                    "part_number": "BK-PC2RLED"
+                },
+                "100588150": {
+                    "expected": 2,
+                    "scanned": 0,
+                    "description": "KEYPAD 2 LINE ALPHA NUMERIC (SD12)",
+                    "part_number": "B920"
+                },
+                "100596874": {
+                    "expected": 3,
+                    "scanned": 0,
+                    "description": "KEYPAD 2-LINE ALPHA FIRE",
+                    "part_number": "B926F"
+                },
+                "100602755": {
+                    "expected": 1,
+                    "scanned": 0,
+                    "description": "KEYPAD BOX SURFACE MOUNT",
+                    "part_number": "B56"
+                },
+                "100596876": {
+                    "expected": 1,
+                    "scanned": 0,
+                    "description": "KEYPAD TOUCH-SCREEN WHITE",
+                    "part_number": "B942W"
+                },
+                "100639348": {
+                    "expected": 6,
+                    "scanned": 0,
+                    "description": "KEYPAD TRIM PLATE FOR B SERIES KEYPADS",
+                    "part_number": "B96"
+                },
+                "100588164": {
+                    "expected": 2,
+                    "scanned": 0,
+                    "description": "MODULE POPEX FOR B9512G AND B8512G",
+                    "part_number": "B299"
+                },
+                "100523884": {
+                    "expected": 3,
+                    "scanned": 0,
+                    "description": "Motion Detector 40X40 Tri Tech Blue Line",
+                    "part_number": "ISC-BDL2-WP12G"
+                },
+                "100088305": {
+                    "expected": 1,
+                    "scanned": 0,
+                    "description": "MOTION DETECTOR 70 FT CEILING DUAL",
+                    "part_number": "DS9370"
+                },
+                "100503017": {
+                    "expected": 1,
+                    "scanned": 0,
+                    "description": "CONTACT, SMALL OH DOOR CONTACT",
+                    "part_number": "N200AU/ST036"
+                },
+                "100588165": {
+                    "expected": 2,
+                    "scanned": 0,
+                    "description": "PANEL AL CONTROL 599 PTS INT-FIRE-ACCESS",
+                    "part_number": "B9512G"
+                },
+                "100088273": {
+                    "expected": 12,
+                    "scanned": 0,
+                    "description": "POPIT",
+                    "part_number": "D9127U"
+                },
+                "100088212": {
+                    "expected": 1,
+                    "scanned": 0,
+                    "description": "RELAY MODULE 5 AMP",
+                    "part_number": "D130"
+                },
+                "100088224": {
+                    "expected": 1,
+                    "scanned": 0,
+                    "description": "SUPERVISION MODULE",
+                    "part_number": "D192G"
+                },
+                "100509009": {
+                    "expected": 1,
+                    "scanned": 0,
+                    "description": "SYNC MODULE RED",
+                    "part_number": "BK-MDL3R"
+                },
+                "100088220": {
+                    "expected": 2,
+                    "scanned": 0,
+                    "description": "TRANSFORMER 16VAC 40VA",
+                    "part_number": "D1640"
+                },
+                "100088263": {
+                    "expected": 2,
+                    "scanned": 0,
+                    "description": "TRANSFORMER KIT UL",
+                    "part_number": "D8004"
+                },
+                "100567646": {
+                    "expected": 2,
+                    "scanned": 0,
+                    "description": "WIRE 12/2 STR CL3/FPL LSZH WHT 1000 FT",
+                    "part_number": "74122ZWHZ"
+                },
+                "100567650": {
+                    "expected": 6,
+                    "scanned": 0,
+                    "description": "WIRE 18/3 PR STR CM/FPL LSZH WHT 1000 FT",
+                    "part_number": "74183PRWZ"
+                },
+                "100547890": {
+                    "expected": 2,
+                    "scanned": 0,
+                    "description": "WIREWAY B-LINE NEMA1 SCR CVR 4\"X4\"X48\"",
+                    "part_number": "4448G"
+                },
+                "100547941": {
+                    "expected": 1,
+                    "scanned": 0,
+                    "description": "WIREWAY END CAP 2.5\"X2.5\"",
+                    "part_number": "22E"
+                },
+                "100547879": {
+                    "expected": 2,
+                    "scanned": 0,
+                    "description": "WIREWAY ENDCAP B-LINE NEMA1 SC 4\"X4\"",
+                    "part_number": "44E"
+                },
+                "100547931": {
+                    "expected": 2,
+                    "scanned": 0,
+                    "description": "WIREWAY STRAIGHT SECTION W/KO 2.5X2.5X48",
+                    "part_number": "2248G"
+                },
+                "100503009": {
+                    "expected": 2,
+                    "scanned": 0,
+                    "description": "MOTION DETECTOR, PIR/MICROWAVE ",
+                    "part_number": "ISC-PDL1-W18G"
+                },
+                "100579075": {
+                    "expected": 1,
+                    "scanned": 0,
+                    "description": "MOTION DETECTOR, PIR/MICROWAVE CURTAIN LENS PRO SERIES",
+                    "part_number": "ISC-PDL1-WC30G"
+                }
+            }
         }
     }
 }

@@ -1,2 +1,15 @@
+# Dependencies
+/node_modules
+
+# Next.js build output
+/.next/
+/out/
+
+# Local environment variables
+.env*.local
+
 # Local Netlify folder
 .netlify
+
+# Other
+.DS_Store
