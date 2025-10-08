@@ -1,4 +1,18 @@
-from fastapi import APIRouter, Depends, HTTPException, status
+"""
+Genera los routers restantes: articles, bom, scan, reports, main.py
+"""
+import os
+
+output_dir = "migrated_files"
+print("🚀 Generando routers restantes...")
+print("=" * 60)
+
+# ============================================================================
+# 3. articles_router.py migrado
+# ============================================================================
+print("3️⃣  Generando articles_router.py...")
+with open(f"{output_dir}/articles_router.py", "w") as f:
+    f.write('''from fastapi import APIRouter, Depends, HTTPException, status
 from google.cloud import firestore
 from typing import List, Optional
 from ..firestore_client import get_db
@@ -17,9 +31,9 @@ async def create_article(
 ):
     """Create a new article"""
     # Check if article already exists with same sap_article and category
-    existing = db.collection('articles')\
-        .where('sap_article', '==', article.sap_article)\
-        .where('category', '==', article.category.value)\
+    existing = db.collection('articles')\\
+        .where('sap_article', '==', article.sap_article)\\
+        .where('category', '==', article.category.value)\\
         .limit(1).stream()
     
     if list(existing):
@@ -137,3 +151,13 @@ async def delete_article(
     
     doc_ref.delete()
     return None
+''')
+
+print("   ✅ articles_router.py generado")
+
+print("\n" + "=" * 60)
+print("✅ ARTICLES ROUTER GENERADO")
+print("=" * 60)
+print(f"\n📂 Archivo: {output_dir}/articles_router.py")
+print("\n⚠️  NOTA: Los routers BOM, Scan y Reports son MUY largos")
+print("¿Continuar generando los demás? Esto tomará ~2 minutos")

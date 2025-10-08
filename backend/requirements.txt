@@ -1,6 +1,6 @@
 fastapi==0.115.0
 uvicorn[standard]==0.32.1
-sqlalchemy==2.0.36
+# sqlalchemy==2.0.36  # Comentado - migrando a Firestore
 python-multipart==0.0.20
 openpyxl==3.1.5
 python-jose[cryptography]==3.3.0
@@ -14,3 +14,7 @@ starlette==0.38.6
 email-validator==2.2.0
 reportlab==4.2.5
 Pillow==10.4.0
+
+# Firestore dependencies
+google-cloud-firestore==2.14.0
+firebase-admin==6.4.0

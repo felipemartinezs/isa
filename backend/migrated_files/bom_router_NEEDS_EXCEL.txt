@@ -1,0 +1,10 @@
+
+NOTA: bom_router.py requiere migración manual del excel_handler.py
+debido a la lógica compleja de parsing de Excel.
+
+Recomendación: 
+1. Por ahora, usa la versión SQLite para uploads de BOM
+2. O migra excel_handler.py primero
+3. Luego implementa bom_router con Firestore
+
+Este archivo es un marcador.
