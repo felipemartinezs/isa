@@ -1,9 +1,6 @@
-from fastapi import APIRouter, Depends, HTTPException, Query
+from fastapi import APIRouter, HTTPException, Query
 from sse_starlette.sse import EventSourceResponse
-from sqlalchemy.orm import Session
-from .. import auth, models
 from ..sse import sse_manager, event_generator
-from ..database import get_db
 
 router = APIRouter(prefix="/events", tags=["sse"])
 
@@ -11,8 +8,7 @@ router = APIRouter(prefix="/events", tags=["sse"])
 @router.get("/stream")
 async def stream_events(
     token: str = Query(None),
-    session_id: int = None,
-    db: Session = Depends(get_db)
+    session_id: int = None
 ):
     """
     SSE endpoint for real-time updates.
