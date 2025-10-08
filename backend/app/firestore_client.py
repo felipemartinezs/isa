@@ -1,5 +1,5 @@
 """
-Cliente Firestore con soporte para emulador local y producción en Google Cloud
+Cliente Firestore para producción en Google Cloud
 """
 import os
 from google.cloud import firestore
@@ -13,23 +13,20 @@ _firestore_client = None
 
 def get_firestore_client() -> firestore.Client:
     """
-    Singleton para el cliente Firestore.
-    Soporta emulador local (desarrollo) y producción (App Engine).
+    Singleton para el cliente Firestore en producción.
     """
     global _firestore_client
     
     if _firestore_client is not None:
         return _firestore_client
     
-    if settings.USE_FIRESTORE_EMULATOR:
-        # Modo desarrollo con emulador local
-        os.environ["FIRESTORE_EMULATOR_HOST"] = settings.FIRESTORE_EMULATOR_HOST
-        _firestore_client = firestore.Client(project=settings.FIRESTORE_PROJECT_ID)
-        print(f"🔧 Firestore conectado al emulador: {settings.FIRESTORE_EMULATOR_HOST}")
-    else:
-        # Modo producción en App Engine
-        _firestore_client = firestore.Client(project=settings.FIRESTORE_PROJECT_ID)
-        print(f"☁️  Firestore conectado a producción: {settings.FIRESTORE_PROJECT_ID}")
+    # Configurar credenciales desde .env
+    credentials_path = os.getenv('GOOGLE_APPLICATION_CREDENTIALS', 'credentials/service-account.json')
+    os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = credentials_path
+    
+    # Conectar a Firestore en producción
+    _firestore_client = firestore.Client(project=settings.FIRESTORE_PROJECT_ID)
+    print(f"☁️  Firestore conectado a producción: {settings.FIRESTORE_PROJECT_ID}")
     
     return _firestore_client
 

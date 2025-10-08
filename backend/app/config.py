@@ -3,10 +3,10 @@ from functools import lru_cache
 
 
 class Settings(BaseSettings):
-    # Firestore Configuration
-    USE_FIRESTORE_EMULATOR: bool = True
-    FIRESTORE_PROJECT_ID: str = "inventory-scanner-pro"
-    FIRESTORE_EMULATOR_HOST: str = "localhost:8080"
+    # Firestore Configuration - PRODUCCIÓN
+    USE_FIRESTORE_EMULATOR: bool = False
+    FIRESTORE_PROJECT_ID: str = "qtsisa"
+    GOOGLE_APPLICATION_CREDENTIALS: str = "credentials/service-account.json"
     
     # JWT Configuration
     SECRET_KEY: str = "dev-secret-key-change-in-production"
