@@ -28,7 +28,7 @@ class APIService: ObservableObject {
     @Published var isAuthenticated = false
     @Published var currentUser: User?
     
-    private let baseURL = "http://192.168.1.79:8000"
+    private let baseURL = "http://192.168.1.44:8000"
     private var authToken: String?
     
     // MARK: - Auth
