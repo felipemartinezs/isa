@@ -6,7 +6,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Alert, AlertDescription } from '@/components/ui/alert';
 import { Download, FileText, FileSpreadsheet, AlertCircle, CheckCircle2, Clock } from 'lucide-react';
-import { reportsAPI, scanAPI } from '@/lib/api';
+import { scanAPI } from '@/lib/api';
 
 interface SessionFinalizationModalProps {
   sessionId: number;
@@ -32,35 +32,26 @@ export default function SessionFinalizationModal({
   }, [isOpen, sessionId]);
 
   const loadPreview = async () => {
-    setLoading(true);
-    try {
-      const response = await reportsAPI.getPreview(sessionId);
-      setPreview(response.data);
-    } catch (error) {
-      console.error('Failed to load preview:', error);
-    } finally {
-      setLoading(false);
-    }
+    setLoading(false);
+    // TODO: Implement reportsAPI
+    setPreview({ 
+      statistics: { 
+        completion_pct: 0, 
+        total_records: 0, 
+        bom_items_count: 0, 
+        match_count: 0, 
+        over_count: 0, 
+        under_count: 0 
+      }, 
+      is_complete: false, 
+      has_discrepancies: false, 
+      session: { id: sessionId, category: '', duration_minutes: 0 }, 
+      discrepancies: [] 
+    });
   };
 
   const handleDownload = async (format: 'pdf' | 'excel') => {
-    setDownloading(true);
-    try {
-      const blob = await reportsAPI.downloadReport(sessionId, format);
-      const url = window.URL.createObjectURL(blob);
-      const link = document.createElement('a');
-      link.href = url;
-      link.download = `inventory_report_session_${sessionId}.${format === 'pdf' ? 'pdf' : 'xlsx'}`;
-      document.body.appendChild(link);
-      link.click();
-      link.remove();
-      window.URL.revokeObjectURL(url);
-    } catch (error) {
-      console.error('Failed to download report:', error);
-      alert('Failed to download report');
-    } finally {
-      setDownloading(false);
-    }
+    alert('Report download not yet implemented');
   };
 
   const handleConfirmEnd = async () => {

@@ -9,7 +9,7 @@ export default function SSEDebugger() {
 
   useEffect(() => {
     const token = localStorage.getItem('token');
-    const url = `http://localhost:8000/events/stream?token=${token}`;
+    const url = `${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000'}/events/stream?token=${token}`;
     
     console.log('🔌 Connecting to SSE:', url);
     const eventSource = new EventSource(url);
