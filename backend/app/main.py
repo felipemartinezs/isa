@@ -24,8 +24,9 @@ app.add_middleware(
         "http://localhost:8000",
         "https://isa-panel.vercel.app",
         "https://isa-panel-rk8xm8we4-felipemartinezs-hotmailcoms-projects.vercel.app",
+        "https://isa-panel-e6xuav7vc-felipemartinezs-hotmailcoms-projects.vercel.app",  # ⭐ AGREGAR ESTA LÍNEA
     ],
-    allow_origin_regex=r"https://.*-felipemartinezs-hotmailcoms-projects\.vercel\.app",
+    allow_origin_regex=r"https://isa-panel-.*\.vercel\.app",  # ⭐ CAMBIAR REGEX
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
