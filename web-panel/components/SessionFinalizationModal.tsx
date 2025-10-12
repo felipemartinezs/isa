@@ -6,7 +6,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Alert, AlertDescription } from '@/components/ui/alert';
 import { Download, FileText, FileSpreadsheet, AlertCircle, CheckCircle2, Clock } from 'lucide-react';
-import { scanAPI } from '@/lib/api';
+import { scanAPI, reportsAPI } from '@/lib/api';
 
 interface SessionFinalizationModalProps {
   sessionId: number;
@@ -32,26 +32,36 @@ export default function SessionFinalizationModal({
   }, [isOpen, sessionId]);
 
   const loadPreview = async () => {
-    setLoading(false);
-    // TODO: Implement reportsAPI
-    setPreview({ 
-      statistics: { 
-        completion_pct: 0, 
-        total_records: 0, 
-        bom_items_count: 0, 
-        match_count: 0, 
-        over_count: 0, 
-        under_count: 0 
-      }, 
-      is_complete: false, 
-      has_discrepancies: false, 
-      session: { id: sessionId, category: '', duration_minutes: 0 }, 
-      discrepancies: [] 
-    });
+    setLoading(true);
+    try {
+      const response = await reportsAPI.getPreview(sessionId);
+      setPreview(response.data);
+    } catch (error) {
+      console.error('Failed to load preview:', error);
+    } finally {
+      setLoading(false);
+    }
+  
   };
 
   const handleDownload = async (format: 'pdf' | 'excel') => {
-    alert('Report download not yet implemented');
+    setDownloading(true);
+    try {
+      const blob = await reportsAPI.downloadReport(sessionId, format);
+      const url = window.URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = `inventory_report_session_${sessionId}.${format === 'pdf' ? 'pdf' : 'xlsx'}`;
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+      window.URL.revokeObjectURL(url);
+    } catch (error) {
+      console.error('Failed to download report:', error);
+      alert('Failed to download report');
+    } finally {
+      setDownloading(false);
+    }
   };
 
   const handleConfirmEnd = async () => {
@@ -92,9 +102,9 @@ export default function SessionFinalizationModal({
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
+      <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto sm:max-w-[95vw] sm:h-[95vh] w-full">
         <DialogHeader>
-          <DialogTitle className="text-2xl">Review & Finalize Session</DialogTitle>
+        <DialogTitle className="text-xl sm:text-2xl">Review & Finalize Session</DialogTitle>
           <DialogDescription>
             Review the inventory results before closing Session #{sessionId}
           </DialogDescription>
@@ -104,7 +114,7 @@ export default function SessionFinalizationModal({
           {/* Session Info Card */}
           <Card>
             <CardContent className="pt-6">
-              <div className="grid grid-cols-2 gap-4 text-sm">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 text-sm">
                 <div>
                   <p className="text-muted-foreground">Session ID</p>
                   <p className="font-semibold">#{preview.session.id}</p>
@@ -160,7 +170,7 @@ export default function SessionFinalizationModal({
                 />
               </div>
 
-              <div className="grid grid-cols-2 gap-4 text-sm">
+              <div className="grid grid-cols-2 gap-3 sm:gap-4 text-sm">
                 <div>
                   <p className="text-muted-foreground">Expected Items</p>
                   <p className="font-semibold text-lg">{preview.statistics.bom_items_count}</p>
@@ -174,9 +184,9 @@ export default function SessionFinalizationModal({
           </Card>
 
           {/* Statistics */}
-          <div className="grid grid-cols-3 gap-3">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
             <Card className="border-green-200 bg-green-50 dark:bg-green-900/20">
-              <CardContent className="pt-6 text-center">
+              <CardContent className="pt-4 sm:pt-6 px-4 sm:px-6 text-center">
                 <CheckCircle2 className="h-8 w-8 text-green-600 dark:text-green-400 mx-auto mb-2" />
                 <p className="text-sm text-green-700 dark:text-green-400 font-medium">MATCH</p>
                 <p className="text-3xl font-bold text-green-600 dark:text-green-400">{preview.statistics.match_count}</p>
@@ -187,7 +197,7 @@ export default function SessionFinalizationModal({
             </Card>
 
             <Card className="border-orange-200 bg-orange-50 dark:bg-orange-900/20">
-              <CardContent className="pt-6 text-center">
+              <CardContent className="pt-4 sm:pt-6 px-4 sm:px-6 text-center">
                 <AlertCircle className="h-8 w-8 text-orange-600 dark:text-orange-400 mx-auto mb-2" />
                 <p className="text-sm text-orange-700 dark:text-orange-400 font-medium">OVER</p>
                 <p className="text-3xl font-bold text-orange-600 dark:text-orange-400">{preview.statistics.over_count}</p>
@@ -198,7 +208,7 @@ export default function SessionFinalizationModal({
             </Card>
 
             <Card className="border-red-200 bg-red-50 dark:bg-red-900/20">
-              <CardContent className="pt-6 text-center">
+              <CardContent className="pt-4 sm:pt-6 px-4 sm:px-6 text-center">
                 <AlertCircle className="h-8 w-8 text-red-600 dark:text-red-400 mx-auto mb-2" />
                 <p className="text-sm text-red-700 dark:text-red-400 font-medium">UNDER</p>
                 <p className="text-3xl font-bold text-red-600 dark:text-red-400">{preview.statistics.under_count}</p>
@@ -269,44 +279,44 @@ export default function SessionFinalizationModal({
           <Card>
             <CardContent className="pt-6">
               <h3 className="font-semibold mb-4">Generate Report</h3>
-              <div className="flex gap-3">
+              <div className="flex flex-col sm:flex-row gap-3">
                 <Button
                   variant="outline"
-                  className="flex-1"
+                  className="w-full sm:flex-1"
                   onClick={() => handleDownload('pdf')}
                   disabled={downloading}
                 >
                   <FileText className="mr-2 h-4 w-4" />
-                  Download PDF
+                  <span className="text-sm sm:text-base">Download PDF</span>
                 </Button>
                 <Button
                   variant="outline"
-                  className="flex-1"
+                  className="w-full sm:flex-1"
                   onClick={() => handleDownload('excel')}
                   disabled={downloading}
                 >
                   <FileSpreadsheet className="mr-2 h-4 w-4" />
-                  Download Excel
+                  <span className="text-sm sm:text-base">Download Excel</span>
                 </Button>
               </div>
             </CardContent>
           </Card>
 
           {/* Actions */}
-          <div className="flex gap-3 pt-4">
+          <div className="flex flex-col sm:flex-row gap-3 pt-4">
             <Button
               variant="outline"
               onClick={onClose}
-              className="flex-1"
+              className="w-full sm:flex-1 order-2 sm:order-1"
             >
               Cancel
             </Button>
             <Button
               onClick={handleConfirmEnd}
-              className="flex-1 bg-blue-600 hover:bg-blue-700"
+              className="w-full sm:flex-1 bg-blue-600 hover:bg-blue-700 order-1 sm:order-2"
             >
               <CheckCircle2 className="mr-2 h-4 w-4" />
-              Confirm & Close Session
+              <span className="text-sm sm:text-base">Confirm & Close Session</span>
             </Button>
           </div>
         </div>
