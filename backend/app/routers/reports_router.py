@@ -43,28 +43,55 @@ def get_session_full_data(session_id: int, db: Session, user_id: int):
     over_count = sum(1 for r in records if r.status == models.StatusEnum.OVER)
     under_count = sum(1 for r in records if r.status == models.StatusEnum.UNDER)
     
-    # Get BOM info if applicable
+    # Get BOM info and missing items if applicable
     bom_items_count = 0
+    missing_items = []
+    
     if session.bom_id:
-        bom_items_count = db.query(func.count(models.BOMItem.id)).filter(
+        # Get all BOM items
+        bom_items = db.query(models.BOMItem).filter(
             models.BOMItem.bom_id == session.bom_id
-        ).scalar() or 0
+        ).all()
+        
+        bom_items_count = len(bom_items)
+        
+        # Find missing items (in BOM but not scanned)
+        scanned_articles = {r.sap_article for r in records}
+        
+        for bom_item in bom_items:
+            if bom_item.sap_article not in scanned_articles:
+                missing_items.append({
+                    "sap_article": bom_item.sap_article,
+                    "part_number": bom_item.part_number,
+                    "description": bom_item.description,
+                    "expected_quantity": bom_item.quantity,
+                    "scanned_quantity": 0,
+                    "difference": -bom_item.quantity,
+                    "status": "MISSING"
+                })
+    
+    # Calculate true under count (includes missing items)
+    true_under_count = under_count + len(missing_items)
     
     # Calculate completion percentage
     completion_pct = 0
     if bom_items_count > 0:
-        completion_pct = (total_records / bom_items_count) * 100
+        # Count unique articles scanned vs total BOM items
+        scanned_unique = len({r.sap_article for r in records})
+        completion_pct = (scanned_unique / bom_items_count) * 100
     
     return {
         "session": session,
         "records": records,
+        "missing_items": missing_items,
         "stats": {
             "total_records": total_records,
             "match_count": match_count,
             "over_count": over_count,
-            "under_count": under_count,
+            "under_count": true_under_count,  # Incluye missing
             "bom_items_count": bom_items_count,
-            "completion_pct": completion_pct
+            "completion_pct": completion_pct,
+            "missing_count": len(missing_items)
         }
     }
 
@@ -192,6 +219,37 @@ def generate_pdf_report(session_data: dict) -> BytesIO:
         elements.append(disc_table)
         elements.append(Spacer(1, 0.3*inch))
     
+    # Missing Items Section (items in BOM but not scanned)
+    missing_items = session_data.get("missing_items", [])
+    
+    if missing_items:
+        elements.append(Paragraph(f"❌ Missing Items ({len(missing_items)} items NOT scanned)", heading_style))
+        
+        missing_data = [['SAP Article', 'Part Number', 'Description', 'Expected Qty', 'Status']]
+        for item in missing_items:
+            missing_data.append([
+                item['sap_article'],
+                (item.get('part_number') or '')[:20] + '...' if item.get('part_number') and len(item.get('part_number', '')) > 20 else (item.get('part_number') or ''),
+                (item.get('description') or '')[:35] + '...' if item.get('description') and len(item.get('description', '')) > 35 else (item.get('description') or ''),
+                str(int(item['expected_quantity'])),
+                'NOT SCANNED'
+            ])
+        
+        missing_table = Table(missing_data, colWidths=[1.2*inch, 1.2*inch, 2.5*inch, 1*inch, 1*inch])
+        missing_table.setStyle(TableStyle([
+            ('BACKGROUND', (0, 0), (-1, 0), colors.HexColor('#dc2626')),
+            ('TEXTCOLOR', (0, 0), (-1, 0), colors.whitesmoke),
+            ('ALIGN', (0, 0), (-1, -1), 'LEFT'),
+            ('ALIGN', (3, 0), (-1, -1), 'CENTER'),
+            ('FONTNAME', (0, 0), (-1, 0), 'Helvetica-Bold'),
+            ('FONTSIZE', (0, 0), (-1, -1), 9),
+            ('GRID', (0, 0), (-1, -1), 0.5, colors.grey),
+            ('VALIGN', (0, 0), (-1, -1), 'MIDDLE'),
+            ('BACKGROUND', (0, 1), (-1, -1), colors.HexColor('#fee2e2')),
+        ]))
+        elements.append(missing_table)
+        elements.append(Spacer(1, 0.3*inch))
+    
     # Complete Items List (new page)
     elements.append(PageBreak())
     elements.append(Paragraph("Complete Inventory List", heading_style))
@@ -300,6 +358,7 @@ def generate_excel_report(session_data: dict) -> BytesIO:
         row += 1
     
     # Details Sheet
+    
     ws_details = wb.create_sheet("Inventory Details")
     
     headers = ["SAP Article", "Part Number", "Description", "Expected Qty", "Scanned Qty", "Difference", "Status"]
@@ -310,6 +369,7 @@ def generate_excel_report(session_data: dict) -> BytesIO:
         cell.fill = PatternFill(start_color="6366F1", end_color="6366F1", fill_type="solid")
         cell.alignment = Alignment(horizontal="center")
     
+    # ✅ LOOP EMPIEZA AQUÍ
     for row, record in enumerate(records, start=2):
         ws_details.cell(row=row, column=1).value = record.sap_article
         ws_details.cell(row=row, column=2).value = record.part_number or ''
@@ -327,9 +387,42 @@ def generate_excel_report(session_data: dict) -> BytesIO:
             status_cell.fill = PatternFill(start_color="FED7AA", end_color="FED7AA", fill_type="solid")
         elif record.status == models.StatusEnum.UNDER:
             status_cell.fill = PatternFill(start_color="FECACA", end_color="FECACA", fill_type="solid")
+    # ✅ LOOP TERMINA AQUÍ (nota que esta línea NO tiene indentación)
     
-    # Auto-adjust column widths
-    for ws in [ws_summary, ws_details]:
+    # ✅ Missing Items Sheet - FUERA DEL LOOP
+    missing_items = session_data.get("missing_items", [])
+    if missing_items:
+        ws_missing = wb.create_sheet("Missing Items")
+        
+        ws_missing['A1'] = "⚠️ MISSING ITEMS (Not Scanned)"
+        ws_missing['A1'].font = Font(size=14, bold=True, color="DC2626")
+        ws_missing.merge_cells('A1:E1')
+        
+        headers = ["SAP Article", "Part Number", "Description", "Expected Qty", "Status"]
+        for col, header in enumerate(headers, start=1):
+            cell = ws_missing.cell(row=3, column=col)
+            cell.value = header
+            cell.font = Font(bold=True, color="FFFFFF")
+            cell.fill = PatternFill(start_color="DC2626", end_color="DC2626", fill_type="solid")
+            cell.alignment = Alignment(horizontal="center")
+        
+        for row, item in enumerate(missing_items, start=4):
+            ws_missing.cell(row=row, column=1).value = item['sap_article']
+            ws_missing.cell(row=row, column=2).value = item.get('part_number') or ''
+            ws_missing.cell(row=row, column=3).value = item.get('description') or ''
+            ws_missing.cell(row=row, column=4).value = item['expected_quantity']
+            ws_missing.cell(row=row, column=5).value = 'NOT SCANNED'
+            
+            # Red background for all missing items
+            for col in range(1, 6):
+                ws_missing.cell(row=row, column=col).fill = PatternFill(start_color="FEE2E2", end_color="FEE2E2", fill_type="solid")
+    
+    # ✅ Auto-adjust column widths - INCLUYE ws_missing
+    sheets_to_adjust = [ws_summary, ws_details]
+    if missing_items:
+        sheets_to_adjust.append(ws_missing)
+    
+    for ws in sheets_to_adjust:
         for column in ws.columns:
             max_length = 0
             column_letter = column[0].column_letter

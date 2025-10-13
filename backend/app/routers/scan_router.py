@@ -916,3 +916,33 @@ def get_inventory_summary_by_category(
         "total_quantity": sum(cb['total_quantity'] for cb in category_breakdown),
         "total_scans": sum(cb['scan_count'] for cb in category_breakdown)
     }
+
+    # Al final de scan_router.py, después de la línea 918
+@router.get("/last-update")
+async def get_last_update(
+    current_user: models.User = Depends(auth.get_current_user),
+    db: Session = Depends(get_db)
+):
+    """Get timestamp of last update to trigger frontend refresh"""
+    # Get most recent scan record
+    last_record = db.query(models.ScanRecord).join(
+        models.ScanSession
+    ).filter(
+        models.ScanSession.user_id == current_user.id
+    ).order_by(models.ScanRecord.scanned_at.desc()).first()
+    
+    # Get most recently updated session
+    last_session = db.query(models.ScanSession).filter(
+        models.ScanSession.user_id == current_user.id
+    ).order_by(models.ScanSession.started_at.desc()).first()
+    
+    last_update = None
+    if last_record:
+        last_update = last_record.scanned_at
+    if last_session and (not last_update or last_session.started_at > last_update):
+        last_update = last_session.started_at
+    
+    return {
+        "last_update": last_update.isoformat() if last_update else None,
+        "timestamp": datetime.utcnow().isoformat()
+    }

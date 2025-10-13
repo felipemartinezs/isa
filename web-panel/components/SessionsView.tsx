@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Input } from '@/components/ui/input';
 import { FileSpreadsheet, Eye, Trash2, Edit2, Save, X, ChevronDown, ChevronRight, CheckCircle, Clock, AlertCircle, Package, ClipboardList, CheckCircle2 } from 'lucide-react';
-import { scanAPI, connectToSSE } from '@/lib/api';
+import { scanAPI } from '@/lib/api';
 import { format } from 'date-fns';
 import SessionFinalizationModal from './SessionFinalizationModal';
 import InventorySessionView from './InventorySessionView';
@@ -86,59 +86,44 @@ export default function SessionsView() {
   const selectedSessionModeRef = useRef<string | null>(null);
   const eventSourceRef = useRef<EventSource | null>(null);
 
+  
   useEffect(() => {
+    console.log('🔄 SessionsView: Iniciando polling...');
+    let pollCount = 0;
+    
     loadOverview();
     
-    // Setup SSE connection
-    console.log('🔌 Connecting to SSE...');
-    eventSourceRef.current = connectToSSE((data) => {
-      console.log('📡 SSE Data received:', data);
+    // Polling cada 3 segundos
+    const intervalId = setInterval(() => {
+      pollCount++;
+      console.log(`🔄 Polling #${pollCount} - Ejecutando...`);
       
-      const eventType = data.type;
-      const eventSessionId = data.session_id;
-      const currentlySelectedSession = selectedSessionRef.current;
+      loadOverview().catch(err => {
+        console.error('❌ Error en loadOverview durante polling:', err);
+      });
       
-      console.log(`🔄 SessionsView: Event: ${eventType}, Session: ${eventSessionId}, Currently viewing: ${currentlySelectedSession}`);
-      
-      // ALWAYS refresh overview on any event
-      console.log('   📋 Refreshing overview...');
-      loadOverview();
-      
-      // If viewing a session, refresh its summary
-      if (currentlySelectedSession) {
-        // Refresh if it's a scan/update/delete event
-        if (eventType === 'scan' || eventType === 'record_updated' || eventType === 'record_deleted') {
-          // Refresh if the event is for the current session OR if no specific session
-          if (eventSessionId === currentlySelectedSession || !eventSessionId) {
-            console.log('   🔄 Refreshing summary for session:', currentlySelectedSession);
-            
-            // For INVENTORY mode, trigger a refresh
-            if (selectedSessionModeRef.current === 'INVENTORY') {
-              console.log('   📦 INVENTORY mode: Triggering refresh');
-              setInventoryRefreshTrigger(prev => prev + 1);
-            } else {
-              viewSessionSummary(currentlySelectedSession, selectedSessionModeRef.current || undefined);
-            }
-          } else {
-            console.log(`   ℹ️ Event for session ${eventSessionId}, currently viewing ${currentlySelectedSession}, not refreshing`);
-          }
+      // Si hay una sesión seleccionada, refrescar su summary
+      if (selectedSessionRef.current) {
+        if (selectedSessionModeRef.current === 'INVENTORY') {
+          setInventoryRefreshTrigger(prev => prev + 1);
+        } else {
+          viewSessionSummary(selectedSessionRef.current, selectedSessionModeRef.current || undefined)
+            .catch(err => {
+              console.error('❌ Error en viewSessionSummary durante polling:', err);
+            });
         }
-      } else {
-        console.log('   ℹ️ No session selected, only refreshing overview');
       }
-    });
+    }, 3000); // 3 segundos
     
-    setSseConnected(true);
+    setSseConnected(true); // Mantener el indicador activo
+    console.log(`✅ Polling iniciado con interval ID: ${intervalId}`);
     
     return () => {
-      console.log('🔌 Closing SSE connection');
-      if (eventSourceRef.current) {
-        eventSourceRef.current.close();
-      }
+      console.log(`🛑 Limpiando polling (interval ID: ${intervalId})`);
+      clearInterval(intervalId);
       setSseConnected(false);
     };
   }, []);
-
     
   // Keep selectedSessionRef in sync with selectedSession state
     // Keep selectedSessionRef in sync with selectedSession state
